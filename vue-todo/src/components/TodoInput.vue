@@ -1,9 +1,8 @@
 <template>
     <div class="inputBox shadow">
-     <input type="text" v-model="newTodoItem">
-     <!-- <button v-on:click="addTodo">add</button> -->
+     <input type="text" v-model="newTodoItem" @keyup.enter="addTodo">
      <span class="addContainer" v-on:click="addTodo"> 
-        <i class="fa-solid fa-plus"></i>
+       <i class="fas fa-plus addBtn"></i>
      </span>
     </div>
 </template>
@@ -28,28 +27,35 @@
 </script>
 
 <style scoped>
-    input :focus{
-        outline: none;
-    }
-    .inputBox {
-        background: white;
-        height: 50px;
-        line-height: 50px;
-        border-radius: 5px;
-    }
-    .inputBox input {
-        border-style: none;
-        font-size: 0.9rem;
-    }
-    .addContainer {
-        float: right;
-        background: linear-gradient(to right, #6478F8, #8763FB);
-        display: block;
-        width: 3rem;
-        border-radius: 0 5px 5px 0;;
-    }
-    .addBtn {
-        color: white;
-        vertical-align: middle;
-    }
+.inputBox {
+  background: white;
+  height: 50px;
+  display: flex; /* 추가 */
+  align-items: center; /* 세로 가운데 정렬 */
+  border-radius: 5px;
+  padding: 0 0.5rem; /* 양쪽 여백 */
+}
+
+.inputBox input {
+  flex: 1;
+  border: none;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.addContainer {
+  width: 3rem;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to right, #6478F8, #8763FB);
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+.addContainer i {
+  color: white;
+  font-size: 1.2rem;
+}
 </style>
