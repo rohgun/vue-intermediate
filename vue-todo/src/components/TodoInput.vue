@@ -15,12 +15,15 @@
             }
         },
         methods:{
-            addTodo: function(){                
-                localStorage.setItem(this.newTodoItem, this.newTodoItem);
+            addTodo: function(){       
+              if (this.newTodoItem !== '') {
+                var obj = {completed: false, item: this.newTodoItem};         
+                localStorage.setItem(this.newTodoItem, JSON.stringify(obj));
                 this.clearinput();
+              }
             },
             clearinput: function(){
-                this.newTodoItem = "";
+                this.newTodoItem = '';
             }
         }
     }
